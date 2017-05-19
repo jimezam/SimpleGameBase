@@ -73,7 +73,7 @@ public class World extends Sprite implements GameSection
 
     @Override
     public void update() {
-        getGameSection().update();
+        updateGameSection();
     }
 
     @Override

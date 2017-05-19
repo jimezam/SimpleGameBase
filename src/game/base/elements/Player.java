@@ -56,7 +56,7 @@ public class Player extends Sprite
             setY(ny);
         }
         else
-            getGameSection().update();
+            updateGameSection();
     }
     
     @Override

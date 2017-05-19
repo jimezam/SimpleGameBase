@@ -114,4 +114,10 @@ public abstract class Sprite
         
         return true;
     }
+    
+    public void updateGameSection()
+    {
+        if(getGameSection() != null)
+            getGameSection().update();
+    }
 }
