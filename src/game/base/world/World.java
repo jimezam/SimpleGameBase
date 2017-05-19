@@ -7,7 +7,6 @@ package game.base.world;
 
 import game.base.element.Player;
 import game.base.element.Sprite;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -27,7 +26,6 @@ public class World extends Sprite implements GameSection
         super(x, y, width, height);
         
         // TODO        
-        setColor(Color.green);
 
         player = new Player(10, 10);
         player.setGameSection(this);
@@ -61,8 +59,6 @@ public class World extends Sprite implements GameSection
            evt.getKeyCode() == KeyEvent.VK_RIGHT)
         {
             player.move(evt.getKeyCode());
-            
-            return;
         }
 
         ////////////////////////////////////////////////////////////////////////

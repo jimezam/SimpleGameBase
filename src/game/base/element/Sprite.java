@@ -139,15 +139,10 @@ public abstract class Sprite
         
         Rectangle bounds = getGameSection().getBoundaries();
         
-        if(getX() >= bounds.getX() &
-           getY() >= bounds.getY() & 
-           getX() + getWidth() <= bounds.getX() + bounds.getWidth() &
-           getY() + getHeight()<= bounds.getY() + bounds.getHeight())
-        {
-            return false;
-        }
-        
-        return true;
+        return !(getX() >= bounds.getX() &
+                 getY() >= bounds.getY() &
+                 getX() + getWidth()  <= bounds.getX() + bounds.getWidth() &
+                 getY() + getHeight() <= bounds.getY() + bounds.getHeight());
     }
     
     public void updateGameSection()

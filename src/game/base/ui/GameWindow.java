@@ -6,6 +6,7 @@
 package game.base.ui;
 
 import game.base.world.World;
+import java.awt.Color;
 
 /**
  *
@@ -17,6 +18,7 @@ public class GameWindow extends javax.swing.JFrame {
     
     /**
      * Creates new form GameWindow
+     * @param world
      */
     public GameWindow(World world) {
         this.world = world;
@@ -45,33 +47,19 @@ public class GameWindow extends javax.swing.JFrame {
         });
 
         gamePanel.setWorld(world);
-        gamePanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                gamePanelMousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
         gamePanel.setLayout(gamePanelLayout);
         gamePanelLayout.setHorizontalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 402, Short.MAX_VALUE)
         );
         gamePanelLayout.setVerticalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 302, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gamePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(gamePanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,11 +103,13 @@ public class GameWindow extends javax.swing.JFrame {
         int height = 600;
         
         World world = new World(0, 0, width, height);
+        world.setColor(Color.GREEN);
         
         GameWindow window = new GameWindow(world);
         window.setSize(width, height);
-        window.setVisible(true);
         window.pack();
+
+        window.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

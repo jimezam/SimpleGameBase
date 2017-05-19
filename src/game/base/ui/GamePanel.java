@@ -6,7 +6,6 @@
 package game.base.ui;
 
 import game.base.world.World;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -32,9 +31,13 @@ public class GamePanel extends javax.swing.JPanel implements GameSection
         world.setGameSection(this);
     }
 
+    @Override
     public void paint(Graphics g)
     {
-        world.paint(g);
+        if(world != null)
+            world.paint(g);
+        else
+            System.err.println("[GAMEPANEL.PAINT] World is null!");
     }
 
     @Override
