@@ -7,6 +7,7 @@ package game.base.elements;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -25,4 +26,12 @@ public class World extends Sprite
         g.setColor(Color.green);
         g.fillRect(0, 0, getWidth(), getHeight());
     }
+
+    public void keyPressed(KeyEvent evt) 
+    {
+        if(evt.getKeyCode() == KeyEvent.VK_Q)
+        {
+            System.exit(0);
+        }
+    }                               
 }
