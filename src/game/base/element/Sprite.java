@@ -120,4 +120,18 @@ public abstract class Sprite
         if(getGameSection() != null)
             getGameSection().update();
     }
+
+    public boolean checkCollision(Sprite other)
+    {
+        // Collision x-axis?
+        boolean collisionX = this.getX() + this.getWidth() >= other.getX() &&
+            this.getX() < other.getX() + other.getWidth();
+
+        // Collision y-axis?
+        boolean collisionY = this.getY() + this.getHeight() >= other.getY() &&
+            this.getY() < other.getY() + other.getHeight();
+
+        // Collision only if on both axes
+        return collisionX && collisionY;        
+    }
 }
