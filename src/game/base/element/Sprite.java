@@ -9,6 +9,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import game.base.ui.GameSection;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -22,6 +26,7 @@ public abstract class Sprite
     private int height;
     private Color color;
     private GameSection section;
+    protected BufferedImage image;
     
     /*
     public Sprite()
@@ -39,6 +44,7 @@ public abstract class Sprite
         setColor(new Color((int)(Math.random()*256), 
                            (int)(Math.random()*256), 
                            (int)(Math.random()*256)));
+        setGameSection(null);
     }
     
     public Sprite(int x, int y, int width, int height, GameSection gameSection)
@@ -47,7 +53,19 @@ public abstract class Sprite
         setGameSection(gameSection);
     }
     
-    public abstract void paint(Graphics g);
+    public void paint(Graphics g)
+    {
+        // TODO
+
+        if(getColor() != null)
+        {
+            g.setColor(getColor());
+            g.fillRect(getX(), getY(), getWidth(), getHeight());
+        }
+        
+        if(getImage() != null)
+            g.drawImage(getImage(), getX(), getY(), getWidth(), getHeight(), null);
+    }
 
     public int getX() {
         return x;
@@ -95,6 +113,30 @@ public abstract class Sprite
 
     public void setGameSection(GameSection section) {
         this.section = section;
+    }
+
+    public BufferedImage getImage() {
+        return image;
+    }
+
+    public BufferedImage setImage(String filename)
+    {
+        try 
+        {
+            setImage(ImageIO.read(new File(filename)));
+            
+            return getImage();
+        } 
+        catch (IOException e) 
+        {
+            // There was a problem reading the selected image.
+        }
+        
+        return null;
+    }
+    
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
     
     public boolean isOutOfGameSection()

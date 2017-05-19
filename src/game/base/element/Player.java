@@ -60,10 +60,9 @@ public class Player extends Sprite
     }
     
     @Override
-    public void paint(Graphics g) {
-        // TODO
-        g.setColor(getColor());
-        g.fillRect(getX(), getY(), getWidth(), getHeight());
+    public void paint(Graphics g) 
+    {
+        super.paint(g);
     }    
 
     public int getStep() {
