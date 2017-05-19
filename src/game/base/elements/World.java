@@ -8,6 +8,7 @@ package game.base.elements;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 /**
  *
@@ -29,9 +30,18 @@ public class World extends Sprite
 
     public void keyPressed(KeyEvent evt) 
     {
+        // TODO
+        System.out.println("[World] Key pressed: " + evt.getKeyChar());
+
         if(evt.getKeyCode() == KeyEvent.VK_Q)
         {
             System.exit(0);
         }
     }                               
+
+    public void mousePressed(MouseEvent evt) 
+    {
+        // TODO
+        System.out.println("[World] Mouse pressed: " + evt.getPoint());
+    }
 }

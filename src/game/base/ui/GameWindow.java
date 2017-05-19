@@ -45,6 +45,11 @@ public class GameWindow extends javax.swing.JFrame {
         });
 
         gamePanel.setWorld(world);
+        gamePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                gamePanelMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
         gamePanel.setLayout(gamePanelLayout);
@@ -74,6 +79,10 @@ public class GameWindow extends javax.swing.JFrame {
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         world.keyPressed(evt);
     }//GEN-LAST:event_formKeyPressed
+
+    private void gamePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamePanelMousePressed
+        world.mousePressed(evt);
+    }//GEN-LAST:event_gamePanelMousePressed
 
     /**
      * @param args the command line arguments

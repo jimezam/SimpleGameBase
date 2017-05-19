@@ -39,6 +39,9 @@
   </Layout>
   <SubComponents>
     <Container class="game.base.ui.GamePanel" name="gamePanel">
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="gamePanelMousePressed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="gamePanel.setWorld(world);"/>
       </AuxValues>
