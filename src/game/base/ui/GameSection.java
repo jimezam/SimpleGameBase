@@ -5,11 +5,15 @@
  */
 package game.base.ui;
 
+import java.awt.Rectangle;
+
 /**
  *
  * @author Jorge I. Meza <jimezam at>
  */
-public interface Updatable 
+public interface GameSection 
 {
+    public Rectangle getBoundaries();
+    
     public void update();
 }

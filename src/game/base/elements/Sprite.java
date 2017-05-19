@@ -5,9 +5,9 @@
  */
 package game.base.elements;
 
-import game.base.ui.Updatable;
 import java.awt.Color;
 import java.awt.Graphics;
+import game.base.ui.GameSection;
 
 /**
  *
@@ -20,7 +20,7 @@ public abstract class Sprite
     private int width;
     private int height;
     private Color color;
-    private Updatable updatable;
+    private GameSection section;
     
     /*
     public Sprite()
@@ -40,10 +40,10 @@ public abstract class Sprite
                            (int)(Math.random()*256)));
     }
     
-    public Sprite(int x, int y, int width, int height, Updatable updatable)
+    public Sprite(int x, int y, int width, int height, GameSection gameSection)
     {
         this(x, y, width, height);
-        setUpdatable(updatable);
+        setGameSection(gameSection);
     }
     
     public abstract void paint(Graphics g);
@@ -88,11 +88,11 @@ public abstract class Sprite
         this.color = color;
     }
 
-    public Updatable getUpdatable() {
-        return updatable;
+    public GameSection getGameSection() {
+        return section;
     }
 
-    public void setUpdatable(Updatable updatable) {
-        this.updatable = updatable;
+    public void setGameSection(GameSection section) {
+        this.section = section;
     }
 }

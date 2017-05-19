@@ -6,6 +6,7 @@
 package game.base.elements;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 /**
@@ -49,10 +50,27 @@ public class Player extends Sprite
             break;
         }
         
-        setX(nx);
-        setY(ny);
+        if(checkMovement(nx, ny))
+        {
+            setX(nx);
+            setY(ny);
+    
+            getGameSection().update();
+        }
+    }
+    
+    protected boolean checkMovement(int x, int y)
+    {
+        Rectangle bounds = getGameSection().getBoundaries();
         
-        getUpdatable().update();
+        if(x < bounds.getX() || y < bounds.getY())
+            return false;
+        
+        if(x + getWidth() > bounds.getX() + bounds.getWidth() || 
+           y + getHeight() > bounds.getY() + bounds.getHeight())
+            return false;
+        
+        return true;
     }
     
     @Override

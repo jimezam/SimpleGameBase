@@ -9,12 +9,13 @@ import game.base.elements.World;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 /**
  *
  * @author Jorge I. Meza <jimezam at>
  */
-public class GamePanel extends javax.swing.JPanel implements Updatable
+public class GamePanel extends javax.swing.JPanel implements GameSection
 {
     private World world;
     
@@ -28,7 +29,7 @@ public class GamePanel extends javax.swing.JPanel implements Updatable
 
     public void setWorld(World world) {
         this.world = world;
-        world.setUpdatable(this);
+        world.setGameSection(this);
     }
 
     public void paint(Graphics g)
@@ -45,6 +46,11 @@ public class GamePanel extends javax.swing.JPanel implements Updatable
     public void update() 
     {
         this.repaint();
+    }
+
+    @Override
+    public Rectangle getBoundaries() {
+        return getBounds();
     }
 
     /**

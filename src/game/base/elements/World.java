@@ -5,17 +5,18 @@
  */
 package game.base.elements;
 
-import game.base.ui.Updatable;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import game.base.ui.GameSection;
+import java.awt.Rectangle;
 
 /**
  *
  * @author Jorge I. Meza <jimezam at>
  */
-public class World extends Sprite implements Updatable
+public class World extends Sprite implements GameSection
 {
     private Player player;
     
@@ -27,7 +28,7 @@ public class World extends Sprite implements Updatable
         setColor(Color.green);
 
         player = new Player(10, 10);
-        player.setUpdatable(this);
+        player.setGameSection(this);
     }
     
     public void paint(Graphics g)
@@ -72,6 +73,11 @@ public class World extends Sprite implements Updatable
 
     @Override
     public void update() {
-        getUpdatable().update();
+        getGameSection().update();
+    }
+
+    @Override
+    public Rectangle getBoundaries() {
+        return new Rectangle(getX(), getY(), getWidth(), getHeight());
     }
 }
