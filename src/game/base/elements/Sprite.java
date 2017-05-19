@@ -5,6 +5,7 @@
  */
 package game.base.elements;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -17,11 +18,14 @@ public abstract class Sprite
     private int y;
     private int width;
     private int height;
+    private Color color;
     
+    /*
     public Sprite()
     {
         this(0, 0, 100, 100);
     }
+    */
     
     public Sprite(int x, int y, int width, int height)
     {
@@ -29,6 +33,9 @@ public abstract class Sprite
         setY(y);
         setWidth(width);
         setHeight(height);
+        setColor(new Color((int)(Math.random()*256), 
+                           (int)(Math.random()*256), 
+                           (int)(Math.random()*256)));
     }
     
     public abstract void paint(Graphics g);
@@ -63,5 +70,13 @@ public abstract class Sprite
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

@@ -16,16 +16,24 @@ import java.awt.event.MouseEvent;
  */
 public class World extends Sprite 
 {
+    private Player player;
+    
     public World(int x, int y, int width, int height)
     {
         super(x, y, width, height);
+        
+        // TODO        
+        setColor(Color.green);
+        player = new Player(10, 10);
     }
     
     public void paint(Graphics g)
     {
         // TODO
-        g.setColor(Color.green);
-        g.fillRect(0, 0, getWidth(), getHeight());
+        g.setColor(getColor());
+        g.fillRect(getX(), getY(), getWidth(), getHeight());
+        
+        player.paint(g);
     }
 
     public void keyPressed(KeyEvent evt) 
