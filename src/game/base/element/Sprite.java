@@ -28,13 +28,6 @@ public abstract class Sprite
     private GameSection section;
     protected BufferedImage image;
     
-    /*
-    public Sprite()
-    {
-        this(0, 0, 100, 100);
-    }
-    */
-    
     public Sprite(int x, int y, int width, int height)
     {
         setX(x);

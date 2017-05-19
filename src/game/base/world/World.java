@@ -33,6 +33,7 @@ public class World extends Sprite implements GameSection
         player.setGameSection(this);
     }
     
+    @Override
     public void paint(Graphics g)
     {
         // TODO

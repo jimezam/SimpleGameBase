@@ -6,7 +6,6 @@
 package game.base.element;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 /**
