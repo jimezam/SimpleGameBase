@@ -5,6 +5,7 @@
  */
 package game.base.elements;
 
+import game.base.ui.Updatable;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -14,7 +15,7 @@ import java.awt.event.MouseEvent;
  *
  * @author Jorge I. Meza <jimezam at>
  */
-public class World extends Sprite 
+public class World extends Sprite implements Updatable
 {
     private Player player;
     
@@ -24,7 +25,9 @@ public class World extends Sprite
         
         // TODO        
         setColor(Color.green);
+
         player = new Player(10, 10);
+        player.setUpdatable(this);
     }
     
     public void paint(Graphics g)
@@ -39,17 +42,36 @@ public class World extends Sprite
     public void keyPressed(KeyEvent evt) 
     {
         // TODO
-        System.out.println("[World] Key pressed: " + evt.getKeyChar());
+        // System.out.println("[WORLD] Key pressed: " + evt.getKeyChar());
 
         if(evt.getKeyCode() == KeyEvent.VK_Q)
         {
             System.exit(0);
         }
+        
+        ////////////////////////////////////////////////////////////////////////
+
+        if(evt.getKeyCode() == KeyEvent.VK_UP    ||
+           evt.getKeyCode() == KeyEvent.VK_DOWN  ||
+           evt.getKeyCode() == KeyEvent.VK_LEFT  ||
+           evt.getKeyCode() == KeyEvent.VK_RIGHT)
+        {
+            player.move(evt.getKeyCode());
+            
+            return;
+        }
+
+        ////////////////////////////////////////////////////////////////////////
     }                               
 
     public void mousePressed(MouseEvent evt) 
     {
         // TODO
-        System.out.println("[World] Mouse pressed: " + evt.getPoint());
+        // System.out.println("[WORLD] Mouse pressed: " + evt.getPoint());
+    }
+
+    @Override
+    public void update() {
+        getUpdatable().update();
     }
 }

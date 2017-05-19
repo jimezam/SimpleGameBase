@@ -14,22 +14,21 @@ import java.awt.Graphics;
  *
  * @author Jorge I. Meza <jimezam at>
  */
-public class GamePanel extends javax.swing.JPanel {
-
+public class GamePanel extends javax.swing.JPanel implements Updatable
+{
     private World world;
     
     /**
      * Creates new form GamePanel
      */
     public GamePanel() 
-    {
-        this.world = world;
-        
+    {        
         initComponents();
     }
 
     public void setWorld(World world) {
         this.world = world;
+        world.setUpdatable(this);
     }
 
     public void paint(Graphics g)
@@ -40,6 +39,12 @@ public class GamePanel extends javax.swing.JPanel {
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(world.getWidth(), world.getHeight());
+    }
+
+    @Override
+    public void update() 
+    {
+        this.repaint();
     }
 
     /**
@@ -62,7 +67,6 @@ public class GamePanel extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

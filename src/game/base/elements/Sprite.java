@@ -5,6 +5,7 @@
  */
 package game.base.elements;
 
+import game.base.ui.Updatable;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -19,6 +20,7 @@ public abstract class Sprite
     private int width;
     private int height;
     private Color color;
+    private Updatable updatable;
     
     /*
     public Sprite()
@@ -36,6 +38,12 @@ public abstract class Sprite
         setColor(new Color((int)(Math.random()*256), 
                            (int)(Math.random()*256), 
                            (int)(Math.random()*256)));
+    }
+    
+    public Sprite(int x, int y, int width, int height, Updatable updatable)
+    {
+        this(x, y, width, height);
+        setUpdatable(updatable);
     }
     
     public abstract void paint(Graphics g);
@@ -78,5 +86,13 @@ public abstract class Sprite
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public Updatable getUpdatable() {
+        return updatable;
+    }
+
+    public void setUpdatable(Updatable updatable) {
+        this.updatable = updatable;
     }
 }
