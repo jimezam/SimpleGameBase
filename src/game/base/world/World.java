@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game.base.elements;
+package game.base.world;
 
+import game.base.element.Player;
+import game.base.element.Sprite;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;

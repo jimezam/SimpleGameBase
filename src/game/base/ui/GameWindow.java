@@ -5,7 +5,7 @@
  */
 package game.base.ui;
 
-import game.base.elements.World;
+import game.base.world.World;
 
 /**
  *
