@@ -33,16 +33,16 @@ public class Player extends Sprite
         switch(direction)
         {
             case KeyEvent.VK_UP:
-                ny -= step;
+                setY(getY() - step);
             break;
             case KeyEvent.VK_DOWN:
-                ny += step;
+                setY(getY() + step);
             break;
             case KeyEvent.VK_LEFT:
-                nx -= step;
+                setX(getX() - step);
             break;
             case KeyEvent.VK_RIGHT:
-                nx += step;
+                setX(getX() + step);
             break;
             
             default:
@@ -50,27 +50,13 @@ public class Player extends Sprite
             break;
         }
         
-        if(checkMovement(nx, ny))
+        if(isOutOfGameSection())
         {
             setX(nx);
             setY(ny);
-    
-            getGameSection().update();
         }
-    }
-    
-    protected boolean checkMovement(int x, int y)
-    {
-        Rectangle bounds = getGameSection().getBoundaries();
-        
-        if(x < bounds.getX() || y < bounds.getY())
-            return false;
-        
-        if(x + getWidth() > bounds.getX() + bounds.getWidth() || 
-           y + getHeight() > bounds.getY() + bounds.getHeight())
-            return false;
-        
-        return true;
+        else
+            getGameSection().update();
     }
     
     @Override

@@ -8,6 +8,7 @@ package game.base.elements;
 import java.awt.Color;
 import java.awt.Graphics;
 import game.base.ui.GameSection;
+import java.awt.Rectangle;
 
 /**
  *
@@ -94,5 +95,23 @@ public abstract class Sprite
 
     public void setGameSection(GameSection section) {
         this.section = section;
+    }
+    
+    public boolean isOutOfGameSection()
+    {
+        if(getGameSection() == null)
+            return false;
+        
+        Rectangle bounds = getGameSection().getBoundaries();
+        
+        if(getX() >= bounds.getX() &
+           getY() >= bounds.getY() & 
+           getX() + getWidth() <= bounds.getX() + bounds.getWidth() &
+           getY() + getHeight()<= bounds.getY() + bounds.getHeight())
+        {
+            return false;
+        }
+        
+        return true;
     }
 }
